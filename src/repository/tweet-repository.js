@@ -28,6 +28,19 @@ class TweetRepository{
             return tweet;
         } catch (error) {
             console.log(error);
+            throw error;
         }
-    }    
+    } 
+    
+    async destroy(id){
+        try {
+            await Tweet.findByIdAndRemove(id);
+            return true;
+        } catch (error) {
+            console.log(error);
+            throw error;
+        }
+    }
 }
+
+module.exports = TweetRepository
