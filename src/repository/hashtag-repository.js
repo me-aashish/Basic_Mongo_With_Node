@@ -42,11 +42,29 @@ class HashtagRepository{
         }
     }
 
+    async findByNameTitleOnly(titleList){
+        var usersProjection = { 
+            title: true,
+            _id: false
+        };
+        try {
+            // console.log(titleList)
+            const tags = await Hashtag.find({
+                title : titleList
+            },usersProjection);
+            return tags;
+        } catch (error) {
+            console.log(error);
+            throw error;
+        }
+    }
+
     async findByName(titleList){
         try {
+            // console.log(titleList)
             const tags = await Hashtag.find({
-                title = titleList
-            }).select('title - _id');
+                title : titleList
+            });
             return tags;
         } catch (error) {
             console.log(error);
