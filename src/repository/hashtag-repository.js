@@ -1,4 +1,4 @@
-const Hashtag = require('../model/hashtags');
+const Hashtag = require('../model/hashtag');
 
 class HashtagRepository{
 

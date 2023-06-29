@@ -48,7 +48,7 @@ class TweetService{
             
             
             const newTweet = await Tweet.findByIdAndUpdate(tweet._id, 
-                { $addToSet: { hashtags: { $each:  allTagsId } } }
+                { $addToSet: { hashtags: { $each:  allTagsId } } }, { new : true }
             )
 
             return newTweet;
