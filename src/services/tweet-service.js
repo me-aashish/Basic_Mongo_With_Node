@@ -43,7 +43,7 @@ class TweetService{
 
             await this.hashtagRepository.bulkCreate(newTags);
 
-            let allTags = await this.hashtagRepository.findByName(tags);
+            let allTags = await this.hashtagRepository.findByName(tags); 
             let allTagsId = allTags.map((tags) => tags._id)
             
             
