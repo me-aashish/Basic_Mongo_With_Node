@@ -6,7 +6,7 @@ class LikeService{
         this.tweetRepoObj = new TweetRepository();
     }
 
-    async toogleLike(modelId, modelType, userId){
+    async toogleLike(modelId, modelType, userId){  // api/v1/likes/toogle?id=modelId&type=modelType
         let isAdded;
         if(modelType === 'Tweet'){
             var likeable = await this.tweetRepoObj.get(modelId);
