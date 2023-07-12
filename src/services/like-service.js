@@ -1,18 +1,20 @@
-const { LikeRepository, TweetRepository } = require('../repository/index');
+const { LikeRepository, TweetRepository, CommentRepository } = require('../repository/index');
 
 class LikeService{
     constructor(){
         this.likeRepoObj = new LikeRepository();
         this.tweetRepoObj = new TweetRepository();
+        this.commentRepoObj = new CommentRepository();
     }
 
     async toogleLike(modelId, modelType, userId){  // api/v1/likes/toogle?id=modelId&type=modelType
         let isAdded;
+        let likeable;
         if(modelType === 'Tweet'){
-            var likeable = await this.tweetRepoObj.get(modelId);
+            likeable = await this.tweetRepoObj.get(modelId);
         }
         else if(modelType === 'Comment'){
-            console.log('comment');
+            likeable = await this.commentRepoObj.get(modelId);
         }
         else{
             throw new Error('unknown model name given');
