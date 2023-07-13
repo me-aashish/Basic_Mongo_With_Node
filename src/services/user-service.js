@@ -61,15 +61,6 @@ class UserService{
      }
  
      verifyToken(token){
-        //  try {
-        //      const response = jwt.verify(token, process.env.JWT_KEY);
-        //      console.log(response)
-        //     //  return response;
-        //  } catch (error) {
-        //     //  console.log('Something went wrong in token verification');
-        //      throw {error};
-        //     // throw new Error(error);
-        //  }
         try {
             const response = jwt.verify(token, process.env.JWT_KEY);
             return response;

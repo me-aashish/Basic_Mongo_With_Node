@@ -18,6 +18,7 @@ const authRequestValidator = async(req, res, next) => {
             throw { error: "Invalid request. Please signup/signin first" };
         }
 
+        req.user = user;
         
     } catch (error) {
         res.status(500).json({
@@ -28,7 +29,7 @@ const authRequestValidator = async(req, res, next) => {
         })  
        
     }
-    req.user = user;
+    
     next();
 }
 

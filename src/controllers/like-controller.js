@@ -3,7 +3,7 @@ const likeServiceObj = new LikeService();
 
 const toogleLike = async(req,res) => {
     try {
-        const response = await likeServiceObj.toogleLike(req.query.modelId, req.query.modelType, req.body.userId);
+        const response = await likeServiceObj.toogleLike(req.query.modelId, req.query.modelType, req.user.id);
         res.status(201).json({
             success : true,
             message : 'Successfully toggled the like',

@@ -24,7 +24,7 @@ const create = async(req,res) => {
 
 const get = async(req,res) => {
     try {
-        
+        console.log(req);
         const response = await tweetServiceObj.get(req.params.id);
         res.status(201).json({
             success : true,
