@@ -24,6 +24,27 @@ const signup = async(req,res) => {
     }
 }
 
+const signin = async(req,res) => {
+    try {
+        const response = await userServiceObj.signin(req.body);
+        res.status(201).json({
+            message : 'successfully signed up',
+            success : true,
+            data : response,
+            err : {}
+        })
+    } catch (error) {
+        res.status(500).json({
+            message : 'something went wrong',
+            success : false,
+            data : {},
+            err : error
+        })
+        console.log(error)
+    }
+}
+
 module.exports = {
-    signup
+    signup,
+    signin
 }

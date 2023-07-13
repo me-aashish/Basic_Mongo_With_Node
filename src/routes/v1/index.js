@@ -13,6 +13,7 @@ router.post('/likes/toogle', likeController.toogleLike);
 router.post('/comments', commentController.create);
 
 router.post('/signup', userController.signup);
+router.post('/signin', userController.signin)
 
 
 
