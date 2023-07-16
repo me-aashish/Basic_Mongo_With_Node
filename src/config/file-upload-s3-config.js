@@ -19,10 +19,11 @@ const upload = multer({
     bucket: process.env.BUCKET,
     acl: "public-read",
     metadata: function (req, file, cb) {
+      console.log("hello",file);
       cb(null, { fieldName: file.fieldname });
     },
     key: function (req, file, cb) {
-      cb(null, Date.now().toString());
+      cb(null, "tweet"+Date.now().toString()+file.originalname);
     }
   })
 });

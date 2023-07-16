@@ -13,8 +13,8 @@ const create = async(req,res) => {
                 })
             }
             const payload = {...req.body};
-            payload.image = req.file.location;
-            console.log(req.file);
+            if(req.file) payload.image = req.file.location;
+            
             const response = await tweetServiceObj.create(payload);
             res.status(201).json({
                 success : true,
