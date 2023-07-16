@@ -6,7 +6,7 @@ const commentController = require('../../controllers/comment-controller');
 const userController = require('../../controllers/user-controller');
 const authMiddleware = require('../../middleware/auth-request-validation')
 
-router.post('/tweet',authMiddleware, tweetController.create);
+router.post('/tweets', tweetController.create);
 router.get('/tweets/:id',authMiddleware, tweetController.get)
 
 router.post('/likes/toogle',authMiddleware, likeController.toogleLike);
