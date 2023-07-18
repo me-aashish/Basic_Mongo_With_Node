@@ -41,7 +41,7 @@ class TweetRepository{
                 populate : {
                     path : 'comments'
                 }
-         }).lean();
+         }).lean().limit(10).sort({ 'createdAt' : -1});
             return tweet;
         } catch (error) {
             console.log(error);
